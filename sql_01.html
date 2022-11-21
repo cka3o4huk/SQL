@@ -1,5 +1,18 @@
 <!-- Вывести данные по продуктам, которые стоят более 100$ или название продукта 'Chai'-->
+
 SELRCT ProductName, UnitPrice
 FROM Products
 WHERE UnitPrice > 100
 or ProductName = 'Chai'
+
+<!-- Вывидете минимальную, максимальную и среднюю стоимость продуктов,
+--которые входят в категорию №3 (столбец CategoryID)
+--Какова максимальная стоимость продуктов в этой категории?
+--Назовите итоговые столбцы новыми именами.-->
+
+ SELECT 
+	min(UnitPrice) as min_price,
+	max(UnitPrice) as max_price,
+	avg(UnitPrice) as avg_price
+FROM Products
+WHERE CategoryID = 3
