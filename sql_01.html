@@ -1,18 +1,30 @@
-<!-- Вывести данные по продуктам, которые стоят более 100$ или название продукта 'Chai'-->
+-- Сколько товаров, стоят больше 100 долларов?
+Select ProductName
+from Products
+where UnitPrice  > '100'
 
-SELRCT ProductName, UnitPrice
-FROM Products
-WHERE UnitPrice > 100
-or ProductName = 'Chai'
+-- Сколько клиентов в нашей базе из Испании?
 
-<!-- Вывидете минимальную, максимальную и среднюю стоимость продуктов,
---которые входят в категорию №3 (столбец CategoryID)
---Какова максимальная стоимость продуктов в этой категории?
---Назовите итоговые столбцы новыми именами.-->
+select *
+from Customers
+where Country = 'Spain'
 
- SELECT 
-	min(UnitPrice) as min_price,
-	max(UnitPrice) as max_price,
-	avg(UnitPrice) as avg_price
-FROM Products
-WHERE CategoryID = 3
+-- Выведите города, начинающиеся на букву ‘W’, в которых проживают клиенты.
+
+Select ContactName, City
+from Customers
+where City like  'W%'
+
+-- У скольких клиентов, не важно в начале или в конце, номер телефона содержит 5555 подряд.
+
+Select *
+from Customers
+where Phone like '%5555%'
+
+-- Выведите информацию о человеке, который проживает в США.
+И работает в должности маркетинг ассистент.
+
+Select *
+from Customers
+where Country = 'USA' and ContactTitle = 'Marketing Assistant'
+
